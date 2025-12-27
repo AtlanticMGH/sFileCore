@@ -40,7 +40,7 @@ void appendFile(char fileName[], char key[], int value){
 
     printf("%d\n", size);
 
-    if(readValue(fileName, key, size) != -1){
+    if(readValue(fileName, key) != -1){
         fprintf(stderr, "\033[1;36mKey \"%s\" already used in \"%s\"! \nCannot be used again!\033[0m\n", key, fileName);
         return;
     }
@@ -71,7 +71,7 @@ void deleteEntry(char fileName[], char key[]){
     size += 4;
     printf("%d\n", size);
 
-    if(readValue(fileName, key, size) == -1){
+    if(readValue(fileName, key) == -1){
         fprintf(stderr, "\033[1;36mKey \"%s\" not found in \"%s\"! \nCannot be deleted!\033[0m\n", key, fileName);
         return;
     }

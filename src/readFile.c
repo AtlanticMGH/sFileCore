@@ -18,7 +18,14 @@ char *readFile(char fileName[], int fileSize){
     return settings;
 }
 
-float readValue(char fileName[], char key[], int fileSize) {
+float readValue(char fileName[], char key[]) {
+    FILE *f = fopen(fileName, "r");
+    if (!f) return -1.0f;
+
+    fseek(f, 0, SEEK_END);
+    int fileSize = ftell(f);
+    fclose(f);
+
     char *s = readFile(fileName, fileSize);
     if (!s) return -1.0f;
 
