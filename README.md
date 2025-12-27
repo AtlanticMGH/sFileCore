@@ -1,43 +1,51 @@
 # sFileCore
 
-A lightweight C library designed for storing and loading numerical data structures. **sFileCore** utilizes a minimalist, line-based format that bridges the gap between the readability of JSON and the simplicity of flat key-value lists.
+A lightweight C library for storing and loading numerical data structures.  
+**sFileCore** uses a minimalist, line-based file format that sits between the readability of JSON and the simplicity of flat key–value lists.
 
 ---
 
-## The Format
+## File Format
 
-The library is optimized to handle numerical values with minimal overhead. While files typically use the **`.s`** extension, the library is flexible and supports any file naming convention.
+The library is optimized for numerical values with minimal overhead.  
+Files usually use the **`.s`** extension, but any filename is supported.
 
-### Syntax Rules:
-- Each entry must be on a new line.
-- Key and Value are separated by a colon (`:`).
-- Every line **must** end with a comma (`,`).
-- A newline character (`\n`) terminates the entry.
+### Syntax Rules
 
-**Example of a `.s` file:**
+- One entry per line
+- Key and value are separated by a colon (`:`)
+- Every line **must** end with a comma (`,`)
+- Each entry is terminated by a newline (`\n`)
+
+### Example `.s` File
+
 ```text
 SCALE: 90,
 FPS: 60,
 VOLUME: 0.85,
 DIFFICULTY: 3,
+
 ```
 ## Usage
-The library can be used for excample simple settings, like storing the screen scale, the FPS, the volume, ...
+sFileCore is ideal for simple configuration data such as screen scaling, frame rate limits, volume levels, or difficulty settings
 
-### Code Excample
+### Code Excample (C)
 ```code
-#include <sFileCore.h>
+#include "sFileCore.h"
 
-int main(){
-  appendFile("settings.s", "SCALE", 90);
+int main() {
+    // Add or update a setting
+    appendFile("settings.s", "SCALE", 90);
 
-  ...
-  int scale = readValue("settings.s", "SCALE");
+    // Read the value back
+    int scale = (int)readValue("settings.s", "SCALE");
 
-  screen.create(16*scale, 9*scale);
+    // Example usage
+    // screen.create(16 * scale, 9 * scale);
 
-  return 0;
+    return 0;
 }
+
 ```
 
 ### List of Commands
