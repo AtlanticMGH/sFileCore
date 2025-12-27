@@ -39,3 +39,13 @@ int main(){
   return 0;
 }
 ```
+
+### List of Commands
+| Syntax | Description |
+|--------|-------------|
+| void overWriteFile(char fileName[], char fileContent[]) | used to overwrite complete file |
+| void appendFile(char fileName[], char key[], float value) | used to add an entry to the end of the file, with key as the identifier|
+| void deleteEntry(char fileName[], char key[]) | deletes entry from the file, with key as the identifier | 
+| void updateEntry(char fileName[], char key[], float value) | changes entry, with key as the identifiert |
+| char *readFile(char fileName[], int stringSize) | return the whole file content as a string, stringSize is the amount of chars in the file |
+| float readValue(char fileName[], char key[]) | return the value from an entry, using key as the identifier | 
