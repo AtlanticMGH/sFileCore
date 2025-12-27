@@ -20,3 +20,22 @@ SCALE: 90,
 FPS: 60,
 VOLUME: 0.85,
 DIFFICULTY: 3,
+```
+## Usage
+The library can be used for excample simple settings, like storing the screen scale, the FPS, the volume, ...
+
+### Code Excample
+```code
+#include <sFileCore.h>
+
+int main(){
+  appendFile("settings.s", "SCALE", 90);
+
+  ...
+  int scale = readValue("settings.s", "SCALE");
+
+  screen.create(16*scale, 9*scale);
+
+  return 0;
+}
+```
