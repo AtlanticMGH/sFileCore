@@ -18,29 +18,28 @@ char *readFile(char fileName[], int fileSize){
     return settings;
 }
 
-int readValue(char fileName[], char key[], int fileSize) {
+float readValue(char fileName[], char key[], int fileSize) {
     char *s = readFile(fileName, fileSize);
-    if (!s) return -1;
+    if (!s) return -1.0f;
 
     size_t klen = strlen(key);
     char *val = s;
 
     while ((val = strstr(val, key))) {
-        if ((val == s || *(val - 1) == '\n') &&
-            val[klen] == ':')
+        if ((val == s || *(val - 1) == '\n') && val[klen] == ':')
             break;
         val += klen;
     }
 
     if (!val) {
         free(s);
-        return -1;
+        return -1.0f;
     }
 
     char *start = strchr(val, ':');
     if (!start) {
         free(s);
-        return -1;
+        return -1.0f;
     }
     start++;
 
@@ -49,7 +48,7 @@ int readValue(char fileName[], char key[], int fileSize) {
     char *end = strchr(start, ',');
     if (!end) {
         free(s);
-        return -1;
+        return -1.0f;
     }
 
     char buf[64];
@@ -59,7 +58,7 @@ int readValue(char fileName[], char key[], int fileSize) {
     memcpy(buf, start, len);
     buf[len] = '\0';
 
-    int num = (int)strtol(buf, NULL, 10);
+    float num = strtof(buf, NULL);
 
     free(s);
     return num;
