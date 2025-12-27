@@ -28,7 +28,7 @@ void overWriteFile(char fileName[], char fileContent[]){
     }
 }
 
-void appendFile(char fileName[], char key[], int value){
+void appendFile(char fileName[], char key[], float value){
     FILE *f_size = fopen(fileName, "rb");
     if(f_size == NULL){
         fprintf(stderr, "\033[1;31mFatal Error: File \"%s\" could not be opened!\033[0m\n", fileName);
@@ -48,7 +48,7 @@ void appendFile(char fileName[], char key[], int value){
     FILE *f = fopen(fileName, "a");
     if(f) {
         char appendContent[128];
-        snprintf(appendContent, sizeof(appendContent), "%s: %d", key, value);
+        snprintf(appendContent, sizeof(appendContent), "%s: %f", key, value);
 
         char fullAppendContent[132];
         snprintf(fullAppendContent, sizeof(fullAppendContent), "%s,\n", appendContent);
@@ -122,7 +122,7 @@ void deleteEntry(char fileName[], char key[]){
     free(buf);
 }
 
-void updateEntry(char fileName[], char key[], int value){
+void updateEntry(char fileName[], char key[], float value){
     FILE *f = fopen(fileName, "r");
     if (!f) return;
 
@@ -162,7 +162,7 @@ void updateEntry(char fileName[], char key[], int value){
     if (!v_end) { free(buf); return; }
 
     char newValStr[32];
-    int newValLen = snprintf(newValStr, sizeof(newValStr), "%d", value);
+    int newValLen = snprintf(newValStr, sizeof(newValStr), "%f", value);
 
     memmove(v_start + newValLen, v_end, strlen(v_end) + 1);
     memcpy(v_start, newValStr, newValLen);

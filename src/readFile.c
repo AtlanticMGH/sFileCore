@@ -23,8 +23,8 @@ float readValue(char fileName[], char key[]) {
     if (!f) return -1.0f;
 
     fseek(f, 0, SEEK_END);
-    int fileSize = ftell(f);
     fclose(f);
+    int fileSize = ftell(f);
 
     char *s = readFile(fileName, fileSize);
     if (!s) return -1.0f;
