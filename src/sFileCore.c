@@ -86,7 +86,7 @@ void overWriteFile(char fileName[], char fileContent[]){
 }
 
 void appendFile(char fileName[], char key[], float value){
-    if(readValue(fileName, key) != -1){
+    if(readValue(fileName, key) != -1.0f){
         fprintf(stderr, "\033[1;36mKey \"%s\" already used in \"%s\"! \nCannot be used again!\033[0m\n", key, fileName);
         return;
     }
@@ -108,7 +108,7 @@ void deleteEntry(char fileName[], char key[]){
     int size = ftell(f_size);
     fclose(f_size);
 
-    if(readValue(fileName, key) == -1){
+    if(readValue(fileName, key) == -1.0f){
         fprintf(stderr, "\033[1;36mKey \"%s\" not found in \"%s\"! \nCannot be deleted!\033[0m\n", key, fileName);
         return;
     }
