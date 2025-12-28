@@ -38,7 +38,7 @@ int main() {
     appendFile("settings.s", "SCALE", 90);
 
     // Read the value back
-    flaot scale = readValue("settings.s", "SCALE");
+    float scale = readValue("settings.s", "SCALE");
 
     // Check if something went wrong
     if(scale == getFailValue) return 1;
