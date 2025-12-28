@@ -41,7 +41,7 @@ int main() {
     float scale = readValue("settings.s", "SCALE");
 
     // Check if something went wrong
-    if(scale == getFailValue) return 1;
+    if(scale == getFailValue()) return 1;
 
     // Example usage
     // screen.create(16 * (int)scale, 9 * (int)scale);
