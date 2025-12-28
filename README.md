@@ -39,6 +39,8 @@ int main() {
 
     // Read the value back
     flaot scale = readValue("settings.s", "SCALE");
+
+    // Check if something went wrong
     if(scale == getFailValue) return 1;
 
     // Example usage
