@@ -31,7 +31,6 @@ sFileCore is ideal for simple configuration data such as screen scaling, frame r
 
 ### Code Excample (C)
 ```code
-#define SFILECORE_IMPLEMENTATION
 #include "sFileCore.h"
 
 int main() {
@@ -48,6 +47,11 @@ int main() {
 }
 
 ```
+#### When compiling
+```
+gcc main.c sFileCore.c -o main
+```
+
 
 ### List of Commands
 | Syntax | Description |
