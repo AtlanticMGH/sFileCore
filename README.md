@@ -38,10 +38,11 @@ int main() {
     appendFile("settings.s", "SCALE", 90);
 
     // Read the value back
-    int scale = (int)readValue("settings.s", "SCALE");
+    flaot scale = readValue("settings.s", "SCALE");
+    if(scale == getFailValue) return 1;
 
     // Example usage
-    // screen.create(16 * scale, 9 * scale);
+    // screen.create(16 * (int)scale, 9 * (int)scale);
 
     return 0;
 }
