@@ -34,7 +34,7 @@ sFileCore is ideal for simple configuration data such as screen scaling, frame r
 #include "sFileCore.h"
 
 int main() {
-    // Add or update a setting
+    // Add a setting
     appendFile("settings.s", "SCALE", 90);
 
     // Read the value back
