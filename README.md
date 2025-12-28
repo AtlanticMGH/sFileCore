@@ -30,7 +30,7 @@ DIFFICULTY: 3,
 sFileCore is ideal for simple configuration data such as screen scaling, frame rate limits, volume levels, or difficulty settings
 
 ### Code Excample (C)
-```code
+```c
 #include "sFileCore.h"
 
 int main() {
