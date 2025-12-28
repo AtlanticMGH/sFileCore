@@ -56,7 +56,7 @@ gcc main.c sFileCore.c -o main
 ```
 
 
-### List of Commands
+### List of Functions
 | Function | Description |
 |--------|-------------|
 | void setFailValue(float v) | overwrites sFileCore's fail float (standard: -1.52123674234472f) |
