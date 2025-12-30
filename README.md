@@ -59,7 +59,7 @@ gcc main.c sFileCore.c -o main
 ### List of Functions
 | Function | Description |
 |--------|-------------|
-| void setFailValue(float v) | overwrites sFileCore's fail float (standard: -1.52123674234472f) |
+| void setFailValue(float v) | overwrites sFileCore's fail float (default: -1.52123674234472f) |
 | float getFailValue() | returns fail float |
 | void overWriteFile(char fileName[], char fileContent[]) | used to overwrite complete file |
 | void appendFile(char fileName[], char key[], float value) | used to add an entry to the end of the file, with key as the identifier|
